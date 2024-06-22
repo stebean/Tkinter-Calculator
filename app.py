@@ -1,12 +1,15 @@
 from tkinter import *
 import ast
+import customtkinter
 
-root = Tk()
+root = customtkinter.CTk()
+customtkinter.set_appearance_mode("System")
+customtkinter.set_default_color_theme("blue")
 root.title("Calculator")
 root.resizable(False, False)
 
 # Calculator display
-display = Entry(root, font=("Arial", 24), width=18)
+display = Entry(root, font=("Arial", 24), width=18, background="#919297")
 display.grid(row=0, columnspan=6, sticky=W+E, pady= 10)
 display.bind("<Key>", lambda e: "break")
 
@@ -62,31 +65,31 @@ def calculate():
 button_font = ("Arial", 18)
 
 # Numeric buttons
-Button(root, text="1", command=lambda:get_number(1), font=button_font, height=2, width=4, bg="#bababa", fg="black", bd=1, padx=5, pady=5).grid(row=2, column=0, sticky=W+E)
-Button(root, text="2", command=lambda:get_number(2), font=button_font, height=2, width=4, bg="#bababa", fg="black", bd=1, padx=5, pady=5).grid(row=2, column=1, sticky=W+E)
-Button(root, text="3", command=lambda:get_number(3), font=button_font, height=2, width=4, bg="#bababa", fg="black", bd=1, padx=5, pady=5).grid(row=2, column=2, sticky=W+E)
+Button(root, text="1", command=lambda:get_number(1), font=button_font, height=2, width=4, bg="#212121", fg="white", bd=1, padx=5, pady=5).grid(row=2, column=0, sticky=W+E)
+Button(root, text="2", command=lambda:get_number(2), font=button_font, height=2, width=4, bg="#212121", fg="white", bd=1, padx=5, pady=5).grid(row=2, column=1, sticky=W+E)
+Button(root, text="3", command=lambda:get_number(3), font=button_font, height=2, width=4, bg="#212121", fg="white", bd=1, padx=5, pady=5).grid(row=2, column=2, sticky=W+E)
 
-Button(root, text="4", command=lambda:get_number(4), font=button_font, height=2, width=4, bg="#bababa", fg="black", bd=1, padx=5, pady=5).grid(row=3, column=0, sticky=W+E)
-Button(root, text="5", command=lambda:get_number(5), font=button_font, height=2, width=4, bg="#bababa", fg="black", bd=1, padx=5, pady=5).grid(row=3, column=1, sticky=W+E)
-Button(root, text="6", command=lambda:get_number(6), font=button_font, height=2, width=4, bg="#bababa", fg="black", bd=1, padx=5, pady=5).grid(row=3, column=2, sticky=W+E)
+Button(root, text="4", command=lambda:get_number(4), font=button_font, height=2, width=4, bg="#212121", fg="white", bd=1, padx=5, pady=5).grid(row=3, column=0, sticky=W+E)
+Button(root, text="5", command=lambda:get_number(5), font=button_font, height=2, width=4, bg="#212121", fg="white", bd=1, padx=5, pady=5).grid(row=3, column=1, sticky=W+E)
+Button(root, text="6", command=lambda:get_number(6), font=button_font, height=2, width=4, bg="#212121", fg="white", bd=1, padx=5, pady=5).grid(row=3, column=2, sticky=W+E)
 
-Button(root, text="7", command=lambda:get_number(7), font=button_font, height=2, width=4, bg="#bababa", fg="black", bd=1, padx=5, pady=5).grid(row=4, column=0, sticky=W+E)
-Button(root, text="8", command=lambda:get_number(8), font=button_font, height=2, width=4, bg="#bababa", fg="black", bd=1, padx=5, pady=5).grid(row=4, column=1, sticky=W+E)
-Button(root, text="9", command=lambda:get_number(9), font=button_font, height=2, width=4, bg="#bababa", fg="black", bd=1, padx=5, pady=5).grid(row=4, column=2, sticky=W+E)
+Button(root, text="7", command=lambda:get_number(7), font=button_font, height=2, width=4, bg="#212121", fg="white", bd=1, padx=5, pady=5).grid(row=4, column=0, sticky=W+E)
+Button(root, text="8", command=lambda:get_number(8), font=button_font, height=2, width=4, bg="#212121", fg="white", bd=1, padx=5, pady=5).grid(row=4, column=1, sticky=W+E)
+Button(root, text="9", command=lambda:get_number(9), font=button_font, height=2, width=4, bg="#212121", fg="white", bd=1, padx=5, pady=5).grid(row=4, column=2, sticky=W+E)
 
 # Operators buttons
-Button(root, text="AC", command=lambda:clear_display(), font=button_font, height=2, width=4, bg="#bababa", fg="black", bd=1, padx=5, pady=5).grid(row=5, column=0, sticky=W+E)
-Button(root, text="0", command=lambda:get_number(0), font=button_font, height=2, width=4, bg="#bababa", fg="black", bd=1, padx=5, pady=5).grid(row=5, column=1, sticky=W+E)
-Button(root, text="%", command=lambda:get_operator("%"), font=button_font, height=2, width=4, bg="#bababa", fg="black", bd=1, padx=5, pady=5).grid(row=5, column=2, sticky=W+E)
+Button(root, text="AC", command=lambda:clear_display(), font=button_font, height=2, width=4, bg="#212121", fg="white", bd=1, padx=5, pady=5).grid(row=5, column=0, sticky=W+E)
+Button(root, text="0", command=lambda:get_number(0), font=button_font, height=2, width=4, bg="#212121", fg="white", bd=1, padx=5, pady=5).grid(row=5, column=1, sticky=W+E)
+Button(root, text="%", command=lambda:get_operator("%"), font=button_font, height=2, width=4, bg="#212121", fg="white", bd=1, padx=5, pady=5).grid(row=5, column=2, sticky=W+E)
 
-Button(root, text="+", command=lambda:get_operator("+"), font=button_font, height=2, width=4, bg="#bababa", fg="black", bd=1, padx=5, pady=5).grid(row=2, column=3, sticky=W+E)
-Button(root, text="-", command=lambda:get_operator("-"), font=button_font, height=2, width=4, bg="#bababa", fg="black", bd=1, padx=5, pady=5).grid(row=3, column=3, sticky=W+E)
-Button(root, text="/", command=lambda:get_operator("/"), font=button_font, height=2, width=4, bg="#bababa", fg="black", bd=1, padx=5, pady=5).grid(row=4, column=3, sticky=W+E)
-Button(root, text="X", command=lambda:get_operator("*"), font=button_font, height=2, width=4, bg="#bababa", fg="black", bd=1, padx=5, pady=5).grid(row=5, column=3, sticky=W+E)
+Button(root, text="+", command=lambda:get_operator("+"), font=button_font, height=2, width=4, bg="#212121", fg="white", bd=1, padx=5, pady=5).grid(row=2, column=3, sticky=W+E)
+Button(root, text="-", command=lambda:get_operator("-"), font=button_font, height=2, width=4, bg="#212121", fg="white", bd=1, padx=5, pady=5).grid(row=3, column=3, sticky=W+E)
+Button(root, text="/", command=lambda:get_operator("/"), font=button_font, height=2, width=4, bg="#212121", fg="white", bd=1, padx=5, pady=5).grid(row=4, column=3, sticky=W+E)
+Button(root, text="X", command=lambda:get_operator("*"), font=button_font, height=2, width=4, bg="#212121", fg="white", bd=1, padx=5, pady=5).grid(row=5, column=3, sticky=W+E)
 
-Button(root, text="←", command=lambda:undo(), font=button_font, height=2, width=4, bg="#bababa", fg="black", bd=1, padx=5, pady=5).grid(row=2, column=4, sticky=W+E, columnspan=2)
-Button(root, text="exp", command=lambda:get_operator("**"), font=button_font, height=2, width=4, bg="#bababa", fg="black", bd=1, padx=5, pady=5).grid(row=3, column=4, sticky=W+E)
-Button(root, text="x²", command=lambda:get_operator("**2"), font=button_font, height=2, width=4, bg="#bababa", fg="black", bd=1, padx=5, pady=5).grid(row=3, column=5, sticky=W+E)
-Button(root, text="=", command=lambda:calculate(), font=button_font, height=2, width=4, bg="#bababa", fg="black", bd=1, padx=5, pady=5).grid(row=4, column=4, sticky="NSEW", columnspan=2, rowspan=2)
+Button(root, text="←", command=lambda:undo(), font=button_font, height=2, width=4, bg="#212121", fg="white", bd=1, padx=5, pady=5).grid(row=2, column=4, sticky=W+E, columnspan=2)
+Button(root, text="exp", command=lambda:get_operator("**"), font=button_font, height=2, width=4, bg="#212121", fg="white", bd=1, padx=5, pady=5).grid(row=3, column=4, sticky=W+E)
+Button(root, text="x²", command=lambda:get_operator("**2"), font=button_font, height=2, width=4, bg="#212121", fg="white", bd=1, padx=5, pady=5).grid(row=3, column=5, sticky=W+E)
+Button(root, text="=", command=lambda:calculate(), font=button_font, height=2, width=4, bg="#212121", fg="white", bd=1, padx=5, pady=5).grid(row=4, column=4, sticky="NSEW", columnspan=2, rowspan=2)
 
 root.mainloop()
